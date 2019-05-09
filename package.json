@@ -1,0 +1,24 @@
+{
+  "name": "FriendFinder",
+  "version": "1.0.0",
+  "description": "This is a basic compatibility application that uses , , ,.  The user is able to ….  The output is…",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jll9qw/FriendFinder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jll9qw/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/jll9qw/FriendFinder#readme",
+  "dependencies": {
+    "node": "^12.2.0"
+  }
+}
