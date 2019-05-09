@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/jll9qw/FriendFinder#readme",
   "dependencies": {
-    "node": "^12.2.0"
+    "express": "^4.16.4",
+    "node": "^12.2.0",
+    "path": "^0.12.7"
   }
 }
