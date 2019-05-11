@@ -2,11 +2,11 @@
 const express = require("express");
 const path = require('path'); 
 const app = express();
-const PORT = 3550;
 
 
-// `process.env.PORT || 3000` ensures we connect to the correct port when deployed
-// var PORT = process.env.PORT || 3000;
+
+
+const PORT = process.env.PORT || 3000;
 
 
 // Allows data to be sent to server as JSON
