@@ -29,13 +29,15 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script type="text/javascript">
      
-     
-      // $('#survey-btn').on('click', function() {
-      //   // ajax call
-      // });
+    //  make on button function that will get survey html
+      $('#survey-btn').on('click', function() {
+       $.ajax({
+          method: 'GET',
+          url: '/survey'
+        });
+      });
 
-      
+
     </script>
   </body>
 </html>
-
