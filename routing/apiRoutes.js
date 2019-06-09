@@ -5,7 +5,9 @@ module.exports = function(app) {
 
 
 app.get('/api/friends', function(req, res) {
-    res.json(result);
+    friendsData = req.body;
+    console.log(friendsData);
+  
   });
 
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
@@ -13,17 +15,17 @@ app.get('/api/friends', function(req, res) {
 app.post('/api/friends', function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var newFriends = req.body;
+    friendsData = req.body;
   
-    // Using a RegEx Pattern to remove spaces from newFriends
+ 
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newFriends.routeName = newFriends.name.replace(/\s+/g, '').toLowerCase();
+   friendsData.routeName =friendsData.name.replace(/\s+/g, '').toLowerCase();
   
-    console.log(newFriends);
+    console.log(friendsData);
   
-    results.push(newFriends);
+//    friendsData.push(friendsData);
   
-    res.json(newFriends);
+//     res.json(friendsData);
   });
 
 
