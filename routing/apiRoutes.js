@@ -5,8 +5,8 @@ module.exports = function(app) {
 
 
 app.get('/api/friends', function(req, res) {
-    friendsData = req.body;
-    console.log(friendsData);
+   
+    res.json(friends);
   
   });
 
