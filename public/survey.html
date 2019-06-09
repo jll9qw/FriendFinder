@@ -187,12 +187,45 @@
     </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
     <script type="text/javascript">
       // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+      var config ={
+        ".chosen-select":{},
+        ".chosen-select-deselect":{
+          allow_single_deselect:  true
+        },
+        ".chosen-select-no-single":{
+          disable_search_threshold: 10
+        },
+        ".chosen-select-no-results":{
+          no_results_text: "Nobody found...for now"
+        },
+        ".chosen-select-width":{
+          width:"95%"
+        }
+      };
+
+      for (selector in config){
+        $(selector).chosen(config[selector]);
+      }
+
+
+
 
       $('.submit').on('click', function(event) {
         event.preventDefault();
+        
+        //Form validation
+        function validateForm(){
+          var isValid = true;
+          $(".form-control").each(function(){
+            if ($(this).val()===""){
+              isValid = false;
+            }
+          });
+          return isValid;
+
+        }
 
         // Captures the form inputs 
         var newFriend = {
