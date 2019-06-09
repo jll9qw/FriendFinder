@@ -227,13 +227,16 @@
 
         }
 
+        // If all the fields are captured
+        if (validateForm()){
+
         // Captures the form inputs 
         var newFriend = {
-          customerName: $('#form-name')
+          name: $('#form-name')
             .val()
             .trim(),
          
-          customerPic: $('#form-picture-id')
+          pic: $('#form-picture-id')
             .val()
             .trim(),
             score: [
@@ -249,6 +252,20 @@
 					$("#q10").val()
 ]
         };
+// Ajax post to the API
+$.post("api/friends", newFriend, function(data){
+
+  // Displaying the results
+  $("#match-name").text(data.name);
+  $("#match-img").attr("src", data.pic);
+
+  $("#results-modal").modal('toogle');
+
+
+});
+        } else{
+          alert("Please fill out the form")
+        }
 
         console.log(newFriend);
 
