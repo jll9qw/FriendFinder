@@ -1,19 +1,14 @@
 var friendsData = [
   {
-    customerName: "Ahmed",
-    link: "ahmed@example.com",
-    scores: [""]
+   name: "Ahmed",
+    pic: "ahmed@example.com",
+    score: []
   },
   {
-    customerName: "Saima",
-    link: "saima@example.com",
-    scores: [""]
+    name: "Saima",
+    pic: "saima@example.com",
+    score: []
   }
 ];
 
-var result = {};
-for (var i=0; i<friendsData.length; i++) {
-  result[friendsData[i].key] = friendsData[i].value;
-}
-
-module.exports = result;
+module.exports = friendsData;

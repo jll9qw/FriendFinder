@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Reservation Page</title>
+    <title>Survey Page</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -267,15 +267,12 @@ $.post("api/friends", newFriend, function(data){
           alert("Please fill out the form")
         }
 
-        console.log(newFriend);
-
         $.ajax({
           url: '/api/friends',
           method: 'POST',
           data: newFriend
         }).then(function(data) {
-         
-        console.log(newFriend);
+
         });
 
 
