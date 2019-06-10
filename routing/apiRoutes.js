@@ -1,6 +1,5 @@
 var friends = require('../app/data/friends');
 
-
 module.exports = function(app) {
 // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.
 app.get('/api/friends', function(req, res) { 
@@ -20,10 +19,10 @@ app.post('/api/friends', function(req, res) {
     least_difference: 0
   };
     
-  friendsData.forEach((friend, i) => {
+  friends.forEach((friend, i) => {
     var difference = 0;
-    friend.scores.forEach((score, j) => {
-      difference += Math.abs(newfriendData.scores[j] - score);
+    friend.score.forEach((score, j) => {
+      difference += Math.abs(newfriendData.score[j] - score);
     });
     if (i === 0) {
       match.index = i;
@@ -34,8 +33,8 @@ app.post('/api/friends', function(req, res) {
     } else return;
   });
 
-  best_match = friendsData[match.index];
-  newfriendData.push(friendsData);
+  best_match = friends[match.index];
+  friends.push(newfriendData);
   res.json(best_match)
 
   
