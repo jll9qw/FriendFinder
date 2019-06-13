@@ -20,7 +20,7 @@ app.post('/api/friends', function(req, res) {
   
    let match = {
     name: "",
-    photo: "",
+    pic: "",
     friendDifference: Infinity
   };
 
@@ -33,15 +33,15 @@ app.post('/api/friends', function(req, res) {
 
   
 
-    for (let j = 0; j < currentFriend.scores.length; j++) {
+    for (let j = 0; j < currentFriend.score.length; j++) {
       
 
-      totalDifference += Math.abs(newfriendData.scores[j] - parseInt(currentFriend.scores[j]));
+      totalDifference += Math.abs(newfriendData.score[j] - parseInt(currentFriend.score[j]));
     };
     if (totalDifference <= bestMatch.friendDifference) {
       // Reset the bestMatch to be the new friend.
       match.name = currentFriend.name;
-      match.photo = currentFriend.photo;
+      match.pic = currentFriend.pic;
       match.friendDifference = totalDifference;
     }
   }
