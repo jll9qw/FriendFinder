@@ -1,5 +1,9 @@
 var path = require("path");
 
+// ===============================================================================
+// ROUTING
+// ===============================================================================
+
 module.exports = function(app) {
   app.get("/survey", function(req, res) {
     // A GET Route to /survey which should display the survey page.
