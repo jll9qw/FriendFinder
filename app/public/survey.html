@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
     <title>Survey Page</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </head>
 
   <body>
@@ -185,8 +185,12 @@
         </div>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery.js"></script>
+  
+    
+   
+    <!-- Chosen
+    <link rel=“stylesheet” href=“https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css”>
+    <script src=“https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js”></script> -->
     <script type="text/javascript">
       // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
       // var config ={
@@ -253,27 +257,27 @@
 ]
         };
 // Ajax post to the API
-$.post("api/friends", newFriend, function(data){
+$.post("/api/friends", newFriend, function(data){
 
   // Displaying the results
   $("#match-name").text(data.name);
   $("#match-img").attr("src", data.pic);
 
-  $("#results-modal").modal('toogle');
-
+  $("#results-modal").modal("toggle");
+console.log(data);
 
 });
         } else{
           alert("Please fill out the form")
         }
 
-        $.ajax({
-          url: '/api/friends',
-          method: 'POST',
-          data: newFriend
-        }).then(function(data) {
+        // $.ajax({
+        //   url: '/api/friends',
+        //   method: 'POST',
+        //   data: newFriend
+        // }).then(function(data) {
 
-        });
+        // });
 
 
           // Clear the form when submitting
