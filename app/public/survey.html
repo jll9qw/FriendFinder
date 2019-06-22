@@ -209,26 +209,26 @@
 
 
       // In this code below we create the Front-end JavaScript to post to server
-      const config ={
-        ".chosen-select":{},
-        ".chosen-select-deselect":{
-          allow_single_deselect:  true
-        },
-        ".chosen-select-no-single":{
-          disable_search_threshold: 10
-        },
-        ".chosen-select-no-results":{
-          no_results_text: "Nobody found...for now"
-        },
-        ".chosen-select-width":{
-          width:"95%"
-        }
-      };
-
-      for (selector in config){
-        $(selector).chosen(config[selector]);
+      let config = {
+      ".chosen-select": {},
+      ".chosen-select-deselect": {
+        allow_single_deselect: true
+      },
+      ".chosen-select-no-single": {
+        disable_search_threshold: 10
+      },
+      ".chosen-select-no-results": {
+        no_results_text: "Oops, nothing found!"
+      },
+      ".chosen-select-width": {
+        width: "95%"
       }
+    };
 
+
+      for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
 
 
 
@@ -237,21 +237,27 @@
         
         //Form validation
         function validateForm(){
-          var isValid = true;
+          let isValid = true;
           $(".form-control").each(function(){
             if ($(this).val()===""){
               isValid = false;
             }
           });
-          return isValid;
+          $(".chosen-select").each(function() {
 
-        }
+if ($(this).val() === "") {
+  isValid = false;
+}
+});
+return isValid;
+}
+        
 
         // If all the fields are captured
         if (validateForm()){
 
         // Captures the form inputs 
-        var newFriend = {
+        let newFriend = {
           name: $('#form-name')
             .val()
             .trim(),
@@ -277,7 +283,7 @@ $.post("/api/friends", newFriend, function(data){
 
   // Displaying the results
   $("#match-name").text(data.name);
-  $("#match-img").attr("src", data.pic);
+  $("#match-pic").attr("src", data.pic);
 
   $("#results-modal").modal("toggle");
 console.log(data);
