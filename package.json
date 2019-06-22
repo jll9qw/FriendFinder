@@ -1,5 +1,5 @@
 {
-  "name": "FriendFinder",
+  "name": "friendfinder",
   "version": "1.0.0",
   "description": "This is a basic compatibility application that uses , , ,.  The user is able to ….  The output is…",
   "main": "server.js",
@@ -22,5 +22,6 @@
     "express": "^4.17.1",
     "node": "^12.2.0",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {}
 }

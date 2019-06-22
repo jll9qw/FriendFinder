@@ -1,8 +1,6 @@
-var path = require("path");
+const path = require("path");
 
-// ===============================================================================
-// ROUTING
-// ===============================================================================
+ // ROUTING
 
 module.exports = function(app) {
   app.get("/survey", function(req, res) {

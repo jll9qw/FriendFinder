@@ -176,52 +176,58 @@
         </div>
       </div>
     </div>
-    <div id ="results-modal" class = "modal fade" role= "dialog">
-      <div class = "modal-dialog">
-        <div class = "modal-content">
-          <div class="modal-header">
-            <buttton type="button" class="close" data-dismiss="modal">X</buttton>
-            <h2 class="modal-title">
-              <strong>Best Match!!!</strong>
-            </h2>
-            <div class="modal-body">
-              <h2 id ="match-name"></h2>
-              <img id="match-pic" src ="">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class= "btn btn-default" data-dismiss="modal">Close</button>
+  
+              <div id="results-modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+            
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button class="close" data-dismiss="modal">&times;</button>
+                      <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    </div>
+                    <div class="modal-body">
+                      <h2 id="match-name"></h2>
+                      <img id="match-pic" src="">
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   
-    
-   
-    <!-- Chosen
-    <link rel=“stylesheet” href=“https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css”>
-    <script src=“https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js”></script> -->
     <script type="text/javascript">
-      // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-      // var config ={
-      //   ".chosen-select":{},
-      //   ".chosen-select-deselect":{
-      //     allow_single_deselect:  true
-      //   },
-      //   ".chosen-select-no-single":{
-      //     disable_search_threshold: 10
-      //   },
-      //   ".chosen-select-no-results":{
-      //     no_results_text: "Nobody found...for now"
-      //   },
-      //   ".chosen-select-width":{
-      //     width:"95%"
-      //   }
-      // };
 
-      // for (selector in config){
-      //   $(selector).chosen(config[selector]);
-      // }
+
+
+
+      // In this code below we create the Front-end JavaScript to post to server
+      const config ={
+        ".chosen-select":{},
+        ".chosen-select-deselect":{
+          allow_single_deselect:  true
+        },
+        ".chosen-select-no-single":{
+          disable_search_threshold: 10
+        },
+        ".chosen-select-no-results":{
+          no_results_text: "Nobody found...for now"
+        },
+        ".chosen-select-width":{
+          width:"95%"
+        }
+      };
+
+      for (selector in config){
+        $(selector).chosen(config[selector]);
+      }
 
 
 
@@ -254,7 +260,7 @@
             .val()
             .trim(),
             score: [
-                $("#q1").val(),
+          $("#q1").val(),
 					$("#q2").val(),
 					$("#q3").val(),
 					$("#q4").val(),

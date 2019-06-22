@@ -1,4 +1,4 @@
-var friends = require('../data/friends');
+const friends = require('../data/friends');
 
 
 // ROUTING
@@ -14,12 +14,12 @@ app.get('/api/friends', function(req, res) {
 
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 app.post('/api/friends', function(req, res) {
-    
+  
    let newfriendData = req.body;
    let newfriendScore = newfriendData.score
    let totalDifference;
   
-   let match = {
+   let bestMatch = {
     name: "",
     pic: "",
     friendDifference: Infinity
@@ -35,19 +35,21 @@ app.post('/api/friends', function(req, res) {
 
     for (let j = 0; j < currentFriend.score.length; j++) {
       
+      let currentFriendScore = currentFriend.scores[j];
+      let currentUserScore = newfriendScore[j];
 
-      totalDifference += Math.abs(newfriendScore[j] - parseInt(currentFriend.score[j]));
+      totalDifference += Math.abs(parseInt(currentUserScore)- parseInt(currentFriendScore));
     };
     if (totalDifference <= bestMatch.friendDifference) {
       // Reset the bestMatch to be the new friend.
-      match.name = currentFriend.name;
-      match.pic = currentFriend.pic;
-      match.friendDifference = totalDifference;
+      bestMatch.name = currentFriend.name;
+      bestMatch.pic = currentFriend.pic;
+      bestMatch.friendDifference = totalDifference;
     }
   }
 
   friends.push(newfriendData);
-  res.json(match);
+  res.json(bestMatch);
 
 
 
