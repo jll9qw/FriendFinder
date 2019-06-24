@@ -14,18 +14,20 @@ app.get('/api/friends', function(req, res) {
 
 // A POST routes /api/friends. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 app.post('/api/friends', function(req, res) {
-  
-   let newfriendData = req.body;
-   let newfriendScore = newfriendData.score
-   let totalDifference;
-  
-   let bestMatch = {
+
+  let bestMatch = {
     name: "",
     pic: "",
     friendDifference: Infinity
   };
 
   
+  
+   let newfriendData = req.body;
+   let newfriendScore = newfriendData.score
+   let totalDifference;
+  
+   
 
   for (let i = 0; i < friends.length; i++) {
     let currentFriend = friends[i];
@@ -35,7 +37,7 @@ app.post('/api/friends', function(req, res) {
 
     for (let j = 0; j < currentFriend.score.length; j++) {
       
-      let currentFriendScore = currentFriend.scores[j];
+      let currentFriendScore = currentFriend.score[j];
       let currentUserScore = newfriendScore[j];
 
       totalDifference += Math.abs(parseInt(currentUserScore)- parseInt(currentFriendScore));
@@ -54,4 +56,4 @@ app.post('/api/friends', function(req, res) {
 
 
 })
-}
+};
