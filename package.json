@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/jll9qw/FriendFinder#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node": "^12.2.0",
     "path": "^0.12.7"
   },
